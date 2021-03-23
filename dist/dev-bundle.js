@@ -360,7 +360,7 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ \"./src/modules/modal.js\");\n/* harmony import */ var _modules_accordeonMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/accordeonMenu */ \"./src/modules/accordeonMenu.js\");\n\n\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_0__.default)();\n(0,_modules_accordeonMenu__WEBPACK_IMPORTED_MODULE_1__.default)();\n\n//# sourceURL=webpack://diplom/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_callbackBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/callbackBtn */ \"./src/modules/callbackBtn.js\");\n/* harmony import */ var _modules_accordeonMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/accordeonMenu */ \"./src/modules/accordeonMenu.js\");\n //import topSlider from './modules/topSlider';\n//import services from './modules/services';\n\n\n(0,_modules_callbackBtn__WEBPACK_IMPORTED_MODULE_0__.default)(); //topSlider();\n//services();\n\n(0,_modules_accordeonMenu__WEBPACK_IMPORTED_MODULE_1__.default)();\n\n//# sourceURL=webpack://diplom/./src/index.js?");
 
 /***/ }),
 
@@ -375,14 +375,14 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/modules/modal.js":
-/*!******************************!*\
-  !*** ./src/modules/modal.js ***!
-  \******************************/
+/***/ "./src/modules/callbackBtn.js":
+/*!************************************!*\
+  !*** ./src/modules/callbackBtn.js ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar modal = function modal() {};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);\n\n//# sourceURL=webpack://diplom/./src/modules/modal.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar callbackBtn = function callbackBtn() {\n  var modalCallback = document.querySelector('.modal-callback');\n  var modalOverlay = document.querySelector('.modal-overlay');\n  document.body.addEventListener('click', function (e) {\n    var target = e.target;\n\n    if (target.classList.contains('callback-btn')) {\n      modalCallback.style.display = 'block';\n      modalOverlay.style.display = 'block';\n    }\n\n    if (target.closest('.modal-close')) {\n      modalCallback.style.display = 'none';\n      modalOverlay.style.display = 'none';\n    }\n\n    if (target.classList.contains('modal-overlay')) {\n      modalCallback.style.display = 'none';\n      modalOverlay.style.display = 'none';\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (callbackBtn);\n\n//# sourceURL=webpack://diplom/./src/modules/callbackBtn.js?");
 
 /***/ })
 
@@ -462,7 +462,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("285ef0d8899f4e8e077e")
+/******/ 		__webpack_require__.h = () => ("0c1911943d3bf777edfd")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

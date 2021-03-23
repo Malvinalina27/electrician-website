@@ -3,6 +3,7 @@ const accordeonMenu = () => {
   const element = accordeon.querySelectorAll('.element ');
   const elementContent = accordeon.querySelectorAll('.element-content');
 
+
   for (let i = 0; i < element.length; i++) {
     element[i].addEventListener('click', () => {
       for (let j = 0; j < elementContent.length; j++) {

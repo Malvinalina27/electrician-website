@@ -976,6 +976,9 @@ video#video_background {
 	font-size: 13px;
 	color: #888885;
 }
+.accordeon .element-content .show {
+	display: block;
+}
 .accordeon .element {
 	margin-bottom: 6px;
 	background: #fff;
@@ -1033,6 +1036,8 @@ video#video_background {
 .accordeon > div:last-of-type {
 	margin-bottom: 0;
 }
+
+
 /************************* end accordeon **************************/
 
 /**** steps section *****/

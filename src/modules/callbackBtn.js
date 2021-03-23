@@ -4,7 +4,7 @@ const callbackBtn = () => {
 
   document.body.addEventListener('click', e => {
     const target = e.target;
-    if (target.classList.contains('callback-btn')) {
+    if (target.classList.contains('callback-btn') || target.classList.contains('button-services')) {
       modalCallback.style.display = 'block';
       modalOverlay.style.display = 'block';
     }

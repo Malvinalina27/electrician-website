@@ -360,7 +360,7 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_callbackBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/callbackBtn */ \"./src/modules/callbackBtn.js\");\n/* harmony import */ var _modules_accordeonMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/accordeonMenu */ \"./src/modules/accordeonMenu.js\");\n //import topSlider from './modules/topSlider';\n//import services from './modules/services';\n\n\n(0,_modules_callbackBtn__WEBPACK_IMPORTED_MODULE_0__.default)(); //topSlider();\n//services();\n\n(0,_modules_accordeonMenu__WEBPACK_IMPORTED_MODULE_1__.default)();\n\n//# sourceURL=webpack://diplom/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_up__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/up */ \"./src/modules/up.js\");\n/* harmony import */ var _modules_callbackBtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/callbackBtn */ \"./src/modules/callbackBtn.js\");\n/* harmony import */ var _modules_topSlider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/topSlider */ \"./src/modules/topSlider.js\");\n/* harmony import */ var _modules_accordeonMenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/accordeonMenu */ \"./src/modules/accordeonMenu.js\");\n\n\n //import services from './modules/services';\n\n\n(0,_modules_up__WEBPACK_IMPORTED_MODULE_0__.default)();\n(0,_modules_callbackBtn__WEBPACK_IMPORTED_MODULE_1__.default)();\n(0,_modules_topSlider__WEBPACK_IMPORTED_MODULE_2__.default)(); //services();\n\n(0,_modules_accordeonMenu__WEBPACK_IMPORTED_MODULE_3__.default)();\n\n//# sourceURL=webpack://diplom/./src/index.js?");
 
 /***/ }),
 
@@ -382,7 +382,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar callbackBtn = function callbackBtn() {\n  var modalCallback = document.querySelector('.modal-callback');\n  var modalOverlay = document.querySelector('.modal-overlay');\n  document.body.addEventListener('click', function (e) {\n    var target = e.target;\n\n    if (target.classList.contains('callback-btn')) {\n      modalCallback.style.display = 'block';\n      modalOverlay.style.display = 'block';\n    }\n\n    if (target.closest('.modal-close')) {\n      modalCallback.style.display = 'none';\n      modalOverlay.style.display = 'none';\n    }\n\n    if (target.classList.contains('modal-overlay')) {\n      modalCallback.style.display = 'none';\n      modalOverlay.style.display = 'none';\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (callbackBtn);\n\n//# sourceURL=webpack://diplom/./src/modules/callbackBtn.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar callbackBtn = function callbackBtn() {\n  var modalCallback = document.querySelector('.modal-callback');\n  var modalOverlay = document.querySelector('.modal-overlay');\n  document.body.addEventListener('click', function (e) {\n    var target = e.target;\n\n    if (target.classList.contains('callback-btn') || target.classList.contains('button-services')) {\n      modalCallback.style.display = 'block';\n      modalOverlay.style.display = 'block';\n    }\n\n    if (target.closest('.modal-close')) {\n      modalCallback.style.display = 'none';\n      modalOverlay.style.display = 'none';\n    }\n\n    if (target.classList.contains('modal-overlay')) {\n      modalCallback.style.display = 'none';\n      modalOverlay.style.display = 'none';\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (callbackBtn);\n\n//# sourceURL=webpack://diplom/./src/modules/callbackBtn.js?");
+
+/***/ }),
+
+/***/ "./src/modules/topSlider.js":
+/*!**********************************!*\
+  !*** ./src/modules/topSlider.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar topSlider = function topSlider() {\n  var topSliders = document.querySelector('.top-slider');\n  var item = document.querySelectorAll('.item');\n  var table = item.querySelectorAll('.table');\n  var currentSlide = 0;\n\n  var autoPlaySlide = function autoPlaySlide() {\n    table[currentSlide].classList.remove('table-active');\n    currentSlide++;\n    table[currentSlide].classList.add('table-active');\n  };\n\n  var startSlide = function startSlide() {\n    setInterval(autoPlaySlide, 2000);\n  };\n\n  startSlide();\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (topSlider);\n\n//# sourceURL=webpack://diplom/./src/modules/topSlider.js?");
+
+/***/ }),
+
+/***/ "./src/modules/up.js":
+/*!***************************!*\
+  !*** ./src/modules/up.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar up = function up() {\n  var upBtn = document.querySelector('.up');\n  var push100 = document.querySelector('.push100');\n\n  function trackScroll() {\n    var scrolled = window.pageYOffset;\n    var coords = document.documentElement.clientHeight;\n\n    if (scrolled > coords) {\n      upBtn.classList.add('back_to_top-show');\n    }\n\n    if (scrolled < coords) {\n      upBtn.classList.remove('back_to_top-show');\n    }\n  }\n\n  function backToTop() {\n    if (window.pageYOffset > 0) {\n      window.scrollBy(0, -30);\n      setTimeout(backToTop, 0);\n    }\n  }\n\n  window.addEventListener('scroll', function () {\n    upBtn.hidden = pageYOffset < push100.scrollHeight;\n  });\n  window.addEventListener('scroll', trackScroll);\n  upBtn.addEventListener('click', backToTop);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (up);\n\n//# sourceURL=webpack://diplom/./src/modules/up.js?");
 
 /***/ })
 
@@ -462,7 +484,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("0c1911943d3bf777edfd")
+/******/ 		__webpack_require__.h = () => ("1062677159e35844b372")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

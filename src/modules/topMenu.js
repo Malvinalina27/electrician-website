@@ -11,7 +11,8 @@ const topMenu = () => {
   // вызов модального окна по кнопке "заказать звонок"
   document.body.addEventListener('click', e => {
     const target = e.target;
-    if (target.classList.contains('callback-btn') || target.classList.contains('button-services')) {
+    if (target.classList.contains('callback-btn') || target.classList.contains('button-services') ||
+    target.classList.contains('absolute')) {
       modalCallback.style.display = 'block';
       modalOverlay.style.display = 'block';
       handlerMenu();

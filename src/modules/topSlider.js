@@ -3,6 +3,12 @@ const topSlider = () => {
   const item = document.querySelectorAll('.item');
   const table = item.querySelectorAll('.table');
 
+  const slickDots = document.querySelectorAll('.slick-dots>li');
+  slickDots.forEach(elem => {
+    elem.style.display = 'block';
+  });
+
+
   let currentSlide = 0;
 
   const autoPlaySlide = () => {

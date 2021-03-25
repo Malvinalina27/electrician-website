@@ -933,7 +933,7 @@ video#video_background {
 	}
 	.top-slider .table {
 		opacity: 0;
-		visibility: hidden;
+		/* visibility: hidden; */
 		-webkit-transform: scale(1.5);
 		-ms-transform: scale(1.5);
 		-o-transform: scale(1.5);

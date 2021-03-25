@@ -94,7 +94,7 @@
 
 		<!-- * * * * * * Top slider * * * * * * -->
 		<div class="top-slider white text-center relative">
-			<div class="item relative"
+			<div class="item item-active relative"
 				style="background: url(images/slide1.jpg) 50% 50% no-repeat; background-size: cover;">
 				<div class="table">
 					<div class="table-cell">
@@ -142,7 +142,11 @@
 					</div>
 				</div>
 			</div>
-			<ul class="portfolio-dots">
+
+			<ul class="slick-dots">
+				<li class="slick slick-active"></li>
+				<li class="slick"></li>
+				<li class="slick"></li>
 			</ul>
 
 
@@ -637,7 +641,8 @@
 						type="text" 
 						name="fio" 
 						class="form-control"
-						placeholder="Ваше имя"/>
+						placeholder="Ваше имя*"
+						required/>
 				</div>
 
 				<div class="form-group">

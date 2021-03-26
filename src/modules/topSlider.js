@@ -1,17 +1,17 @@
 const topSlider = () => {
   const slider = document.querySelector('.top-slider');
-  const slides = document.querySelectorAll('.item');
+  const slide = document.querySelectorAll('.item');
   const table = document.querySelectorAll('.table');
   const slickDots = document.querySelector('.slick-dots');
-  let dot = document.querySelectorAll('.slick');
 
   //создание дотсов
-  /*  const getListContent = () => {
+  const getListContent = () => {
     const result = [];
 
-    for (let i = 0; i < item.length; i++) {
+    for (let i = 0; i < slide.length; i++) {
       const li = document.createElement('li');
-      if (li === item.length) {
+      li.className = 'slick';
+      if (li === slide.length) {
         li.className = 'slick slick-active';
       }
       result.push(li);
@@ -20,56 +20,80 @@ const topSlider = () => {
   };
 
   slickDots.append(...getListContent());
-  const dot = document.querySelectorAll('.slick'); */
+  const dot = document.querySelectorAll('.slick');
+
 
   //создание слайдов
-  let index = 0;
-
-  const activeSlide = n => {
-    slides.forEach(elem => {
-      elem.classList.remove('item-active');
-    });
-    slides[n].classList.add('item-active');
+  let currentSlide = 0;
+  let interval;
+  //следующий слайдер
+  const prevSlide = (elem, index, strClass) => {
+    elem[index].classList.remove(strClass);
+    elem[index].classList.remove(strClass);
   };
-  const activeDot = n => {
-    for (dot of slickDots) {
-      dot.classList.remove('item-active');
+  //предыдущий слайдер
+  const nextSlide = (elem, index, strClass) => {
+    elem[index].classList.add(strClass);
+    elem[index].classList.add(strClass);
+  };
+  //автоплей
+  const autoPlaySlide = () => {
+    prevSlide(slide, currentSlide, 'item-active');
+    prevSlide(table, currentSlide, 'active');
+    prevSlide(dot, currentSlide, 'slick-active');
+    currentSlide++;
+    if (currentSlide >= slide.length) {
+      currentSlide = 0;
     }
-    slickDots[n].classList.add('item-active');
+    nextSlide(slide, currentSlide, 'item-active');
+    nextSlide(table, currentSlide, 'active');
+    nextSlide(dot, currentSlide, 'slick-active');
   };
-
-  const prepareCurrentSlide = ind => {
-    activeSlide(ind);
-    activeDot(ind);
+  // запускает слайд
+  const startSlide = (time = 3000) => {
+    interval = setInterval(autoPlaySlide, time);
   };
+  // останавливает слайд
+  const stopSlide = () => {
+    clearInterval(interval);
+  };
+  //переключение слайда по нажатию на дот
+  slider.addEventListener('click', event => {
+    event.preventDefault();
+    let target = event.target;
 
-  const nextSlide = () => {
-    if (index === slides.length - 1) {
-      index = 0;
-      prepareCurrentSlide(index);
-    } else {
-      index++;
-      prepareCurrentSlide(index);
+    if (!target.matches('.slick')) {
+      return;
     }
-  };
-  const prevSlide = () => {
-    if (index === 0) {
-      index = slides.length - 1;
-      prepareCurrentSlide(index);
-    } else {
-      index--;
-      prepareCurrentSlide(index);
-    }
-  };
+    prevSlide(slide, currentSlide, 'item-active');
+    prevSlide(table, currentSlide, 'active');
+    prevSlide(dot, currentSlide, 'slick-active');
 
-  dot.forEach((item, indexDot) => {
-    item.addEventListener('click', () => {
-      index = indexDot;
-      prepareCurrentSlide(index);
-    });
+    if (target.matches('.slick')) {
+      dot.forEach((elem, index) => {
+        if (elem === target) {
+          currentSlide = index;
+        }
+      });
+    }
+
+    nextSlide(slide, currentSlide, 'item-active');
+    nextSlide(table, currentSlide, 'active');
+    nextSlide(dot, currentSlide, 'slick-active');
   });
 
-  window.setInterval(nextSlide, 3000);
+  slider.addEventListener('mouseover', event => {
+    if (event.target.matches('.slick')) {
+      stopSlide();
+    }
+  });
+  slider.addEventListener('mouseout', event => {
+    if (event.target.matches('.slick')) {
+      startSlide();
+    }
+  });
+
+  startSlide(3000);
 
 };
 

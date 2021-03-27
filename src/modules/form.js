@@ -17,12 +17,17 @@ const form = () => {
         // eslint-disable-next-line no-useless-escape
         target.value = target.value.replace(/[^а-яё\ ]/gi, '');
         item.addEventListener('blur', () => {
-          regularValid();
-          target.value = target.value
-            .split(' ')
-            .map(word => word[0].toUpperCase() + word.substring(1).toLowerCase())
-            .join(' ');
-          return true;
+          if (item.value.length < 2) {
+            target.value = '';
+          }
+          if (item.value.length > 1) {
+            regularValid();
+            target.value = target.value
+              .split(' ')
+              .map(word => word[0].toUpperCase() + word.substring(1).toLowerCase())
+              .join(' ');
+            return true;
+          }
         });
       }
     });
